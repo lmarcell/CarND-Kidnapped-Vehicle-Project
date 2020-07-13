@@ -113,6 +113,12 @@ public:
   // Set of current particles
   std::vector<Particle> particles;
 
+  std::vector<LandmarkObs> GetNearbyLandmarksWithinSensorRange(
+      const Map &map_landmarks, double sensor_range, double xp, double yp);
+
+  std::tuple<double, double> GetNearestLandmarkPositionFromObservations(
+      std::vector<LandmarkObs> nearby_landmarks, double xm, double ym);
+
 private:
   // Number of particles to draw
   uint num_particles;
